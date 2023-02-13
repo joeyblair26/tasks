@@ -1,6 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
+import "C:/Users/joeyb/tasks/src/images/pikachu.jpg";
 
 function App(): JSX.Element {
     return (
