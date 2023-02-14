@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Col, Container, Row } from "react-bootstrap";
 import "./App.css";
-import "C:/Users/joeyb/tasks/src/images/pikachu.jpg";
+import pikachu from "C:/Users/joeyb/tasks/src/images/pikachu.jpg";
 
 function App(): JSX.Element {
     return (
@@ -25,10 +25,7 @@ function App(): JSX.Element {
                 Log Hello World
             </Button>
             <p>
-                <img
-                    src={"C:/Users/joeyb/tasks/src/images/pikachu.jpg"}
-                    alt="Pikachu"
-                />
+                <img src={pikachu} alt="Pikachu" />
             </p>
             <Container>
                 <Row>
