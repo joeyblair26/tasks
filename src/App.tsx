@@ -12,7 +12,7 @@ function App(): JSX.Element {
             </header>
             <p>
                 Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload. Joey Blair and Hello World
+                automatically reloa. Joey Blair and Hello World
             </p>
             <p>
                 <ol>
