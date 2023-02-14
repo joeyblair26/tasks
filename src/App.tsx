@@ -26,7 +26,7 @@ function App(): JSX.Element {
             </Button>
             <p>
                 <img
-                    src={require("C:/Users/joeyb/tasks/src/images/pikachu.jpg")}
+                    src={"C:/Users/joeyb/tasks/src/images/pikachu.jpg"}
                     alt="Pikachu"
                 />
             </p>
