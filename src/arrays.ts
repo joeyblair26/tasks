@@ -5,7 +5,13 @@
  * the number twice.
  */
 export function bookEndList(numbers: number[]): number[] {
-    return numbers;
+    if (numbers.length === 0) {
+        return [];
+    }
+    let newNums: number[] = [];
+    newNums = [numbers[0], ...newNums];
+    newNums = [...newNums, numbers[numbers.length - 1]];
+    return newNums;
 }
 
 /**
@@ -13,7 +19,8 @@ export function bookEndList(numbers: number[]): number[] {
  * number has been tripled (multiplied by 3).
  */
 export function tripleNumbers(numbers: number[]): number[] {
-    return numbers;
+    const doubledNums = numbers.map((num: number): number => num * 3);
+    return doubledNums;
 }
 
 /**
