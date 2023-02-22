@@ -79,7 +79,14 @@ export function countShortWords(words: string[]): number {
  * then return true.
  */
 export function allRGB(colors: string[]): boolean {
-    return false;
+    if (colors.length === 0) {
+        return true;
+    }
+    const sameColor = colors.every(
+        (color: string): boolean =>
+            color == "red" || color === "blue" || color === "green"
+    );
+    return sameColor;
 }
 
 /**
@@ -90,7 +97,16 @@ export function allRGB(colors: string[]): boolean {
  * And the array [] would become "0=0".
  */
 export function makeMath(addends: number[]): string {
-    return "";
+    if (addends.length === 0) {
+        return "0=0";
+    }
+    const math = addends.toString();
+    const total = addends.reduce(
+        (currentTotal: number, num: number) => currentTotal + num,
+        0
+    );
+    const addPlus = math.replaceAll(",", "+");
+    return total + "=" + addPlus;
 }
 
 /**
@@ -103,5 +119,16 @@ export function makeMath(addends: number[]): string {
  * And the array [1, 9, 7] would become [1, 9, 7, 17]
  */
 export function injectPositive(values: number[]): number[] {
-    return [];
+    const vals = values.map((val: number): number => val);
+    let index = vals.findIndex((val: number): boolean => val < 0);
+    if (index === -1) {
+        index = vals.length;
+    }
+    const vals2 = vals.slice(0, index);
+    const total = vals2.reduce(
+        (currentTotal: number, num: number) => currentTotal + num,
+        0
+    );
+    vals.splice(index + 1, 0, total);
+    return vals;
 }
