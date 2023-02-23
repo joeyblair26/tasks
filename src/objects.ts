@@ -106,7 +106,7 @@ export function toMarkdown(question: Question): string {
  * `newName`.
  */
 export function renameQuestion(question: Question, newName: string): Question {
-    const newQuestion = { ...question, name: newName};
+    const newQuestion = { ...question, name: newName };
     return newQuestion;
 }
 
@@ -149,7 +149,11 @@ export function duplicateQuestion(id: number, oldQuestion: Question): Question {
  * Check out the subsection about "Nested Fields" for more information.
  */
 export function addOption(question: Question, newOption: string): Question {
-    return question;
+    const newQuestion = {
+        ...question,
+        options: [...question.options, newOption]
+    };
+    return newQuestion;
 }
 
 /**
@@ -166,5 +170,12 @@ export function mergeQuestion(
     contentQuestion: Question,
     { points }: { points: number }
 ): Question {
-    return contentQuestion;
+    const newQuestion = {
+        ...contentQuestion,
+        id: id,
+        name: name,
+        points: points,
+        published: false
+    };
+    return newQuestion;
 }
