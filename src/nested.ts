@@ -87,7 +87,12 @@ export function sumPublishedPoints(questions: Question[]): number {
             (question: Question): boolean => question.published === true
         )
     ];
-    return published.length;
+    const total = published.reduce(
+        (currentPoints: number, question: Question) =>
+            currentPoints + question.points,
+        0
+    );
+    return total;
 }
 
 /***
@@ -108,7 +113,13 @@ id,name,options,points,published
  * Check the unit tests for more examples!
  */
 export function toCSV(questions: Question[]): string {
-    return "";
+    const csvQuestions = questions
+        .map(
+            (questions: Question): string =>
+                `${questions.id},${questions.name},${questions.options.length},${questions.points},${questions.published}`
+        )
+        .join("\n");
+    return "id,name,options,points,published\n" + csvQuestions;
 }
 
 /**
