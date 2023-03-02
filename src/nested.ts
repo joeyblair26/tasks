@@ -18,7 +18,15 @@ export function getPublishedQuestions(questions: Question[]): Question[] {
  * `expected`, and an empty array for its `options`.
  */
 export function getNonEmptyQuestions(questions: Question[]): Question[] {
-    return [];
+    const nonEmpty = [
+        ...questions.filter(
+            (questions: Question): boolean =>
+                questions.body !== "" ||
+                questions.expected !== "" ||
+                questions.options.length !== 0
+        )
+    ];
+    return nonEmpty;
 }
 
 /***
@@ -29,6 +37,10 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
+    const found = questions.find((questions) => questions.id === id);
+    if (<Question>found) {
+        return found;
+    }
     return null;
 }
 
@@ -37,7 +49,10 @@ export function findQuestion(
  * with the given `id`.
  */
 export function removeQuestion(questions: Question[], id: number): Question[] {
-    return [];
+    const newQuestions = [
+        ...questions.filter((question: Question): boolean => question.id !== id)
+    ];
+    return newQuestions;
 }
 
 /***
@@ -45,21 +60,34 @@ export function removeQuestion(questions: Question[], id: number): Question[] {
  * questions, as an array.
  */
 export function getNames(questions: Question[]): string[] {
-    return [];
+    const questionNames = [
+        ...questions.map((question: Question): string => question.name)
+    ];
+    return questionNames;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of all their points added together.
  */
 export function sumPoints(questions: Question[]): number {
-    return 0;
+    const totalPoints = questions.reduce(
+        (currentPoints: number, question: Question) =>
+            currentPoints + question.points,
+        0
+    );
+    return totalPoints;
 }
 
 /***
  * Consumes an array of questions and returns the sum total of the PUBLISHED questions.
  */
 export function sumPublishedPoints(questions: Question[]): number {
-    return 0;
+    const published = [
+        ...questions.filter(
+            (question: Question): boolean => question.published === true
+        )
+    ];
+    return published.length;
 }
 
 /***
