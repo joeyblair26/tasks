@@ -1,5 +1,6 @@
 import { Answer } from "./interfaces/answer";
 import { Question, QuestionType } from "./interfaces/question";
+import { makeBlankQuestion } from "./objects";
 
 /**
  * Consumes an array of questions and returns a new array with only the questions
@@ -34,14 +35,17 @@ export function getNonEmptyQuestions(questions: Question[]): Question[] {
  * question is not found, return `null` instead.
  */
 export function findQuestion(
+    // FIX
     questions: Question[],
     id: number
 ): Question | null {
-    const found = questions.find((question: Question): boolean => question.id === id);
-    if (<Question>found) {
-        return found;
-    }
-    return null;
+    let questionFound = null;
+    questions.map((question: Question): void => {
+        if (question.id === id) {
+            questionFound = question;
+        }
+    });
+    return questionFound;
 }
 
 /**
@@ -155,7 +159,10 @@ export function publishAll(questions: Question[]): Question[] {
  * are the same type. They can be any type, as long as they are all the SAME type.
  */
 export function sameType(questions: Question[]): boolean {
-    return false;
+    const questionArray: Question[] = [...questions];
+    return questionArray.every(
+        (question) => question.type === questionArray[0].type
+    );
 }
 
 /***
@@ -164,12 +171,14 @@ export function sameType(questions: Question[]): boolean {
  * you defined in the `objects.ts` file.
  */
 export function addNewQuestion(
+    // FIX
     questions: Question[],
     id: number,
     name: string,
     type: QuestionType
 ): Question[] {
-    return [];
+    const newQuestions = [...questions, makeBlankQuestion(id, name, type) ];
+    return newQuestions;
 }
 
 /***
@@ -182,7 +191,12 @@ export function renameQuestionById(
     targetId: number,
     newName: string
 ): Question[] {
-    return [];
+    return [...questions].map((question: Question): Question => {
+        if (question.id === targetId) {
+            return { ...question, name: newName };
+        }
+        return question;
+    });
 }
 
 /***
