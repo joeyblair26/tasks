@@ -38,13 +38,14 @@ export function findQuestion(
     questions: Question[],
     id: number
 ): Question | null {
-    let questionFound = null;
-    questions.map((question: Question): void => {
-        if (question.id === id) {
-            questionFound = question;
-        }
-    });
-    return questionFound;
+    const questionFound = questions.find(
+        (question: Question): boolean => question.id === id
+    );
+    if (questionFound) {
+        return questionFound;
+    } else {
+        return null;
+    }
 }
 
 /**
