@@ -19,6 +19,9 @@ function App(): JSX.Element {
             <p>
                 <ChangeType></ChangeType>
             </p>
+            <p>
+                <TwoDice></TwoDice>
+            </p>
         </div>
     );
 }
