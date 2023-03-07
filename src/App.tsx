@@ -16,6 +16,9 @@ function App(): JSX.Element {
             <p>
                 <RevealAnswer></RevealAnswer>
             </p>
+            <p>
+                <ChangeType></ChangeType>
+            </p>
         </div>
     );
 }
