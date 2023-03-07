@@ -47,10 +47,8 @@ export function CycleHoliday(): JSX.Element {
             emojiString = "🎆";
         } else if (holidayType === "Fourth of July") {
             emojiString = "🦅";
-        } else if (holidayType === "Halloween") {
-            emojiString = "🎃";
         } else {
-            emojiString = "🪖";
+            emojiString = "🎃";
         }
         return emojiString;
     }

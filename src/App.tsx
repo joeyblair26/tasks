@@ -10,24 +10,20 @@ import { Counter } from "./components/Counter";
 function App(): JSX.Element {
     return (
         <div>
-            <p>
-                <Counter></Counter>
-            </p>
-            <p>
-                <RevealAnswer></RevealAnswer>
-            </p>
-            <p>
-                <ChangeType></ChangeType>
-            </p>
-            <p>
-                <TwoDice></TwoDice>
-            </p>
-            <p>
-                <StartAttempt></StartAttempt>
-            </p>
-            <p>
-                <CycleHoliday></CycleHoliday>
-            </p>
+            <hr></hr>
+            CISC275
+            <hr></hr>
+            <Counter></Counter>
+            <hr></hr>
+            <RevealAnswer></RevealAnswer>
+            <hr></hr>
+            <ChangeType></ChangeType>
+            <hr></hr>
+            <TwoDice></TwoDice>
+            <hr></hr>
+            <StartAttempt></StartAttempt>
+            <hr></hr>
+            <CycleHoliday></CycleHoliday>
         </div>
     );
 }
