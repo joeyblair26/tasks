@@ -25,6 +25,9 @@ function App(): JSX.Element {
             <p>
                 <StartAttempt></StartAttempt>
             </p>
+            <p>
+                <CycleHoliday></CycleHoliday>
+            </p>
         </div>
     );
 }
