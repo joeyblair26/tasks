@@ -11,7 +11,7 @@ function App(): JSX.Element {
     return (
         <div>
             <p>
-                Counter <Counter></Counter>
+                <Counter></Counter>
             </p>
             <p>
                 <RevealAnswer></RevealAnswer>
@@ -21,6 +21,9 @@ function App(): JSX.Element {
             </p>
             <p>
                 <TwoDice></TwoDice>
+            </p>
+            <p>
+                <StartAttempt></StartAttempt>
             </p>
         </div>
     );
