@@ -27,6 +27,7 @@ export function EditMode(): JSX.Element {
     //View
     return (
         <div>
+            <h1>Edit Mode</h1>
             <div>
                 {isStudent ? (
                     <span>{name} is a student </span>

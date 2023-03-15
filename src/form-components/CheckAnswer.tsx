@@ -19,6 +19,7 @@ export function CheckAnswer({
     // View
     return (
         <div>
+            <h1>Check Answer</h1>
             <Form.Group controlId="formInputAnswer">
                 <Form.Label>Input:</Form.Label>
                 <Form.Control value={input} onChange={updateInput} />

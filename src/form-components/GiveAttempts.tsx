@@ -13,6 +13,7 @@ export function GiveAttempts(): JSX.Element {
 
     return (
         <div>
+            <h1>Give Attempts</h1>
             <Form.Group controlId="formMovieReleased">
                 <Form.Label>Input:</Form.Label>
                 <Form.Control

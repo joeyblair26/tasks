@@ -13,6 +13,7 @@ export function StartAttempt(): JSX.Element {
 
     return (
         <div>
+            <h1>Start Attempt</h1>
             <div>Attempts: {attempts} </div>
             <span>
                 <Button
