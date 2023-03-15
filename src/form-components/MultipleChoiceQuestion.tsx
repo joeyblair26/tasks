@@ -26,13 +26,14 @@ export function MultipleChoiceQuestion({
             <div>
                 <Form.Group controlId="chooseOptions">
                     <Form.Label>What is your favorite color?</Form.Label>
-                    <Form.Select value={curChoice} onChange={updateChoice}>
-                        {options.map((option: string) => (
-                            <option key={option} value={option}>
-                                {option}
-                            </option>
-                        ))}
-                    </Form.Select>
+                    {
+                        // FIX ME
+                        <Form.Select value={curChoice} onChange={updateChoice}>
+                            {options.map((option: string) => (
+                                <option key={option} value={option}></option>
+                            ))}
+                        </Form.Select>
+                    }
                 </Form.Group>
                 {curChoice === expectedAnswer ? <div>✔️</div> : <div>❌</div>}
             </div>
