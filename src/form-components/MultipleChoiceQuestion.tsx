@@ -8,15 +8,13 @@ export function MultipleChoiceQuestion({
     options: string[];
     expectedAnswer: string;
 }): JSX.Element {
-    //State
     const [curChoice, setCurChoice] = useState<string>(options[0]);
+    const ans = curChoice === expectedAnswer ? "✔️" : "❌";
 
-    //Control
     function updateChoice(event: React.ChangeEvent<HTMLSelectElement>) {
         setCurChoice(event.target.value);
     }
 
-    //View
     return (
         <div>
             <div>
@@ -26,16 +24,16 @@ export function MultipleChoiceQuestion({
             <div>
                 <Form.Group controlId="chooseOptions">
                     <Form.Label>What is your favorite color?</Form.Label>
-                    {
-                        // FIX ME
-                        <Form.Select value={curChoice} onChange={updateChoice}>
-                            {options.map((option: string) => (
-                                <option key={option} value={option}></option>
-                            ))}
-                        </Form.Select>
-                    }
+                    <Form.Select value={curChoice} onChange={updateChoice}>
+                        {options.map((color: string) => (
+                            <option key={color} value={color}>
+                                {color}
+                            </option>
+                        ))}
+                        ;
+                    </Form.Select>
                 </Form.Group>
-                {curChoice === expectedAnswer ? <div>✔️</div> : <div>❌</div>}
+                The answer is: {ans}.
             </div>
         </div>
     );
