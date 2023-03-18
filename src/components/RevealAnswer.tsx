@@ -11,6 +11,7 @@ export function RevealAnswer(): JSX.Element {
 
     return (
         <div>
+            <h1>Reveal Answer</h1>
             <Button onClick={() => flipVisibility()}>Reveal Answer</Button>
             {visible && <div>42</div>}
         </div>
